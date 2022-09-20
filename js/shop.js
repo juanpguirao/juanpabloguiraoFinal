@@ -158,6 +158,7 @@ const eliminarDelCarrito = (prodId) => {
   const item = carrito.find((prod) => carrito.id === prodId);
   const indice = carrito.indexOf(item);
   carrito.splice(indice, 1);
+  actualizarCarrito();
 
 }
 
