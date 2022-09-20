@@ -21,7 +21,7 @@ const popup = document.getElementById("modal").innerHTML=`
                         </thead>
                         <tbody id="itemsCarrito"></tbody>
                         <tfoot id="footerTotal">
-                            <th scope="row" colspan="5">Total $</th>
+                            <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
                         </tfoot>
                     </table>
                     <div class="row" id="cards"></div>
@@ -29,7 +29,7 @@ const popup = document.getElementById("modal").innerHTML=`
             
                 <div id="footerModal" class="modal-footer btn-group">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button id="vaciar-carrito" type="button" class="btn btn-danger"
+                    <button id="vaciarCarrito" type="button" class="btn btn-danger"
                         data-bs-dismiss="modal">Vaciar carrito</button>
                     <button id="finalizarCompra" type="button" class="btn btn-warning">Finalizar Compra
                         <i class="fa fa-shopping-cart"></i></button>
