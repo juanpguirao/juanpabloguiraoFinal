@@ -96,20 +96,6 @@ function mostrar() {
 //Agregar al carrito, se va a agregar mediante un innerhtml 
 function agregarAlCarrito(agregar) {
   carrito.push(agregar);
-  // let encontrado = carrito.find(p => p.id == agregar.id);
-  // console.log(encontrado)
-  // if (encontrado.id == carrito.id) {
-  //   Swal.fire(
-  //     {
-  //       position: 'top-end',
-  //       icon: 'success',
-  //       title: 'Ya tenes un pack de clases',
-  //       showConfirmButton: false,
-  //       timer: 2500,
-  //       toast: true
-  //     })
-  // }
-//   else {
 
     Swal.fire(
       {
