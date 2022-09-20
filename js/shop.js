@@ -25,6 +25,11 @@ let productos = [];
 let counter = 0; // Agrega posisionamiento al item del carrito
 
 
+const botonVaciarCarrito = document.getElementById("vaciarCarrito");
+const contenedorTotalModal = document.getElementById("footerTotal");
+const contenedorCarrito = document.getElementById("itemsCarrito");
+const packs = document.getElementById('shop');
+
 //Revisando local Storage si hay productos pasados en carrito
 const localCarrito = JSON.parse(localStorage.getItem('carrito')) || [];
 carrito = localCarrito;
@@ -51,14 +56,30 @@ localCarrito.forEach(producto => {
     })
 
   });
-  console.log(eliminarCarrito)
+
+      //Agregando evento a cada boton del carrito por cada producto
+      const eliminarProducto = document.getElementById(`eliminar${producto.id}`);
+      eliminarProducto.addEventListener("click", function () {
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: producto.nombre + " " + 'eliminado!',
+          showConfirmButton: false,
+          timer: 2500,
+          toast: true
+        })
+        eliminarDelCarrito(`eliminar${carrito.length}`)
+      });
+  
+      //sumando precio total agregado al carrito 
+      const total = carrito.reduce((total,precio) => total + precio.precio, 0);
+      contenedorTotalModal.innerHTML =`Total $ ${total}`;
+      carrito.length === 0 ? contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Total de la compra: $${total}</th>`;
+      //agregando al local storage
+      localStorage.setItem("carrito", JSON.stringify(carrito));
 });
 
 
-const botonVaciarCarrito = document.getElementById("vaciarCarrito");
-const contenedorTotalModal = document.getElementById("footerTotal");
-const contenedorCarrito = document.getElementById("itemsCarrito");
-const packs = document.getElementById('shop');
 
 //OBTENIENDO JSON DE productos.json
 async function obtenerProductos() {
