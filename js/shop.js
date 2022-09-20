@@ -207,7 +207,6 @@ function actualizarCarrito(){
                 const total = carrito.reduce((acc,prod) => acc+prod.precio,0);
                 //OPERADOR TERNARIO-------------------------
                 carrito.length === 0 ? contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>`: contenedorTotalModal.innerHTML = `<th scope="row" colspan="5">Total de la compra: $${total}</th>`;
-                contenedorTotalModal.innerText = carrito.length;
                 //se guarda el carrito en el local storage
                 localStorage.setItem("carrito",JSON.stringify(carrito));
 }
